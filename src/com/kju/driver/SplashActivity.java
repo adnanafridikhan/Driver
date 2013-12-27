@@ -16,7 +16,7 @@ public class SplashActivity extends Activity {
 		Thread timer = new Thread(){
 			public void run(){
 				try{
-					sleep(6000);
+					sleep(4000);
 				}catch(Exception e){
 					e.printStackTrace();
 				}finally{

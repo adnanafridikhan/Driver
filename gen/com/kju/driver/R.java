@@ -207,14 +207,17 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f02001a;
         public static final int ic_plusone_standard_off_client=0x7f02001b;
         public static final int ic_plusone_tall_off_client=0x7f02001c;
-        public static final int logo=0x7f02001d;
-        public static final int logo_1=0x7f02001e;
+        public static final int ic_stat_gcm=0x7f02001d;
+        public static final int logo=0x7f02001e;
+        public static final int logo_1=0x7f02001f;
     }
     public static final class id {
         public static final int accept=0x7f05000b;
-        public static final int action_settings=0x7f05000e;
+        public static final int action_settings=0x7f050010;
+        public static final int btnLogin=0x7f05000f;
         public static final int diemden=0x7f050008;
         public static final int gia=0x7f05000a;
+        public static final int header=0x7f05000e;
         public static final int hybrid=0x7f050004;
         public static final int map=0x7f05000c;
         public static final int map_v=0x7f05000d;
@@ -233,8 +236,10 @@ containing a value of this type.
     public static final class layout {
         public static final int fragment_horizontal=0x7f030000;
         public static final int fragment_vertical=0x7f030001;
-        public static final int splash=0x7f030002;
-        public static final int starting_point=0x7f030003;
+        public static final int header_gradient=0x7f030002;
+        public static final int login=0x7f030003;
+        public static final int splash=0x7f030004;
+        public static final int starting_point=0x7f030005;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
