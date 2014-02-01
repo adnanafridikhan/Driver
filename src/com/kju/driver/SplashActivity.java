@@ -13,6 +13,7 @@ public class SplashActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.splash);
+		startService(new Intent(this, LocationService.class));
 		Thread timer = new Thread(){
 			public void run(){
 				try{
@@ -20,8 +21,15 @@ public class SplashActivity extends Activity {
 				}catch(Exception e){
 					e.printStackTrace();
 				}finally{
-					Intent openStartingPoint = new Intent("com.kju.driver.STARTINGPOINT");
-					startActivity(openStartingPoint);
+					SessionManager session = new SessionManager(getApplicationContext());
+					///session.logoutUser(); 
+					if(!session.isLoggedIn()){
+						Intent login = new Intent("com.kju.driver.LOGIN");
+						startActivity(login);
+					}else{
+						Intent startingPoint = new Intent("com.kju.driver.STARTINGPOINT");
+						startActivity(startingPoint);
+					}
 				}
 			}
 		};

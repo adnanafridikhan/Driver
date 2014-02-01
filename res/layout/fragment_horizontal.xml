@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:background="#CCCC00"
+            android:background="#33CC33"
             android:orientation="vertical" >
 
             <LinearLayout
@@ -87,16 +87,21 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal" >
 
                 <Button
                     android:id="@+id/accept"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_weight="0.47"
+                    android:background="@drawable/mybutton"
+                    android:orientation="vertical"
+                    android:padding="10dp"
                     android:text="CHẤP NHẬN" />
             </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout

@@ -26,6 +26,9 @@ import android.content.pm.PackageManager.NameNotFoundException;
 
 import android.util.Log;
 import android.view.Display;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.WindowManager;
 
 /**
@@ -54,20 +57,19 @@ public class StartingPoint extends Activity {
 	GoogleCloudMessaging gcm;
 	AtomicInteger msgId = new AtomicInteger();
 	Context context;
-
+	SessionManager session;
 	String regid;
 
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+	    
+		//startService(new Intent(this, LocationService.class)); 
 		FragmentManager fragmentManager = getFragmentManager();
 		FragmentTransaction fragmentTransaction = fragmentManager
 				.beginTransaction();
-
 		WindowManager wm = getWindowManager();
-
 		Display display = wm.getDefaultDisplay();
 		Point screenSize = new Point();
 		display.getSize(screenSize);
@@ -83,8 +85,8 @@ public class StartingPoint extends Activity {
 		fragmentTransaction.commit();
 
 		context = getApplicationContext();
-
-		
+		 
+		// session.logoutUser();
 		// Check device for Play Services APK. If check succeeds, proceed with
 		// GCM registration.
 		if (checkPlayServices()) {
@@ -114,6 +116,32 @@ public class StartingPoint extends Activity {
 		checkPlayServices();
 	}
 
+	 @Override
+	    public boolean onCreateOptionsMenu(Menu menu)
+	    {
+	        MenuInflater menuInflater = getMenuInflater();
+	        menuInflater.inflate(R.menu.main, menu);
+	        return true;
+	    }
+	
+	
+	    @Override
+	    public boolean onOptionsItemSelected(MenuItem item)
+	    {
+	         
+	        switch (item.getItemId())
+	        {
+	        case R.id.menu_login:
+	        	session = new SessionManager(getApplicationContext());
+	        	session.logoutUser();
+	            return true;
+	 
+	        default:
+	            return super.onOptionsItemSelected(item);
+	        }
+	    }    
+	 
+	 
 	/**
 	 * Check the device to make sure it has the Google Play Services APK. If it
 	 * doesn't, display a dialog that allows users to download the APK from the
